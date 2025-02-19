@@ -2,7 +2,7 @@
 	$host = "localhost";
 	$user = "root";
 	$pass = "";
-	$db = "db_stage";
+	$db = "db_stage_final";
 	
 	$conn = new mysqli($host, $user, $pass, $db);
 	if($conn->connect_error){

@@ -1,6 +1,9 @@
 <?php 
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
+$_SESSION['classId'] = 3;  // Exemple : classe ID 3
+$_SESSION['classArmId'] = 5; // Exemple : section ID 5
+
 
 
     $query = "SELECT tblclass.className,tblclassarms.classArmName 

@@ -47,11 +47,32 @@
             <a class="collapse-item" href="takeAttendance.php">Take Attendance</a>
             <a class="collapse-item" href="viewAttendance.php">View Class Attendance</a>
             <a class="collapse-item" href="viewStudentAttendance.php">View Student Attendance</a>
-            <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a>
+            <!-- <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a> -->
             <!-- <a class="collapse-item" href="addMemberToContLevel.php ">Add Member to Level</a> -->
           </div>
         </div>
       </li>
+      <hr class="sidebar-divider">
+      <li class="nav-item">
+  <div class="sidebar-heading">
+    Emploi du temps
+  </div>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTimetable"
+    aria-expanded="true" aria-controls="collapseTimetable">
+    <i class="fa fa-calendar-alt"></i>
+    <span>Voir emploi</span>
+  </a>
+  <div id="collapseTimetable" class="collapse" aria-labelledby="headingTimetable" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Voir emploi</h6>
+      <a class="collapse-item" href="downloadRecord.php">Consulter l'emploi du temps</a> 
+      <a class="collapse-item" href="downloadTimetable.php">Télécharger (PDF)</a> 
+    </div>
+  </div>
+</li>
 
      
       <!-- <li class="nav-item">

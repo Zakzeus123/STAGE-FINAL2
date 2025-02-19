@@ -2,6 +2,12 @@
 error_reporting(0);
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (!isset($_SESSION['classId']) || !isset($_SESSION['classArmId'])) {
+  die("Erreur : Les variables de session 'classId' et 'classArmId' ne sont pas définies !");
+}
 
 $query = "SELECT tblclass.className,tblclassarms.classArmName 
     FROM tblclassteacher
@@ -100,12 +106,18 @@ $query = "SELECT tblclass.className,tblclassarms.classArmName
                     
                     <tbody>
                   <?php
-                      $query = "SELECT tblstudents.Id,tblclass.className,tblclassarms.classArmName,tblclassarms.Id AS classArmId,tblstudents.firstName,
-                      tblstudents.lastName,tblstudents.otherName,tblstudents.emailAddress,tblstudents.dateCreated
-                      FROM tblstudents
-                      INNER JOIN tblclass ON tblclass.Id = tblstudents.classId
-                      INNER JOIN tblclassarms ON tblclassarms.Id = tblstudents.classArmId
-                      where tblstudents.classId = '$_SESSION[classId]' and tblstudents.classArmId = '$_SESSION[classArmId]'";
+                      $classId = intval($_SESSION['classId']);
+                      $classArmId = intval($_SESSION['classArmId']);
+                      
+                      $query = "SELECT tblstudents.Id, tblclass.className, tblclassarms.classArmName, 
+                                tblclassarms.Id AS classArmId, tblstudents.firstName, tblstudents.lastName, 
+                                tblstudents.otherName, tblstudents.emailAddress, tblstudents.dateCreated 
+                                FROM tblstudents 
+                                INNER JOIN tblclass ON tblclass.Id = tblstudents.classId 
+                                INNER JOIN tblclassarms ON tblclassarms.Id = tblstudents.classArmId 
+                                WHERE tblstudents.classId = $classId 
+                                AND tblstudents.classArmId = $classArmId";
+                      
                       $rs = $conn->query($query);
                       $num = $rs->num_rows;
                       $sn=0;

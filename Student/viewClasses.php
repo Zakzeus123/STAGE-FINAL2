@@ -1,11 +1,16 @@
 <?php 
-error_reporting(0);
+
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $query = "SELECT Id, className FROM tblclass";
 $rs = $conn->query($query);
 $num = $rs->num_rows;
+echo "Number of records found: " . $num . "<br>";
+print_r($rs->fetch_assoc());
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +71,6 @@ $num = $rs->num_rows;
                           echo "<tr>
                                   <td>{$rows['Id']}</td>
                                   <td>{$rows['className']}</td>
-                                  
                                 </tr>";
                         }
                       } else {
@@ -98,6 +102,7 @@ $num = $rs->num_rows;
   <script src="js/ruang-admin.min.js"></script>
   <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  
 
   <script>
     $(document).ready(function () {
