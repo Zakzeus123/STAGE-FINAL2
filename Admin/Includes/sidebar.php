@@ -190,5 +190,24 @@
          </div>
      </li>
      <hr class="sidebar-divider">
+     <div class="sidebar-heading">
+    Gestion Des Annonces
+</div>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnnonces" aria-expanded="true" aria-controls="collapseAnnonces">
+        <i class="fas fa-bullhorn"></i>
+        <span>Gérer les annonces</span>
+    </a>
+    <div id="collapseAnnonces" class="collapse" aria-labelledby="headingAnnonces" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Gérer les annonces</h6>
+            <a class="collapse-item" href="creerAnnonce.php">Créer une annonce</a>
+            <br>
+            <a class="collapse-item" href="voirAnnonce.php">Voir les annonces</a>
+        </div>
+    </div>
+</li>
+<hr class="sidebar-divider">
+
 
  </ul>

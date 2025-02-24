@@ -1,6 +1,31 @@
 <?php 
 include '../Includes/dbcon.php';
 include '../Includes/session.php';
+$userId = $_SESSION['userId'];
+
+// Fetch the latest announcement for the user's classes and groups
+$query = "SELECT classId, classArmId FROM tblclassteacher WHERE Id = '$userId'
+          UNION
+          SELECT classId, classArmId FROM tblstudents WHERE Id = '$userId'";
+
+$result = mysqli_query($conn, $query);
+$latestAnnouncement = null;
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $classId = $row['classId'];
+    $classArmId = $row['classArmId'];
+
+    // Get only the latest announcement
+    $announcementQuery = "SELECT * FROM tblannonces 
+                          WHERE FIND_IN_SET('$classId', classId) OR FIND_IN_SET('$classArmId', classArmId) 
+                          ORDER BY created_at DESC LIMIT 1";
+    $announcementResult = mysqli_query($conn, $announcementQuery);
+
+    if ($announcement = mysqli_fetch_assoc($announcementResult)) {
+        $latestAnnouncement = $announcement;
+        break; // Stop the loop once the latest announcement is found
+    }
+}
 
     $query = "SELECT tblclass.className,tblclassarms.classArmName 
     FROM tblclassteacher
@@ -228,6 +253,62 @@ $totAttendance = mysqli_num_rows($query1);
                             </div>
                           </div>
                         </div>
+                        <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+    let latestAnnouncement = <?php echo json_encode($latestAnnouncement); ?>;
+    console.log("Latest Announcement Data:", latestAnnouncement); // Debugging output
+
+    if (latestAnnouncement) {
+        let imageTag = latestAnnouncement.image ? 
+            `<div class="text-center my-3">
+                <img src="../uploads/${latestAnnouncement.image}" class="img-fluid rounded shadow" 
+                     alt="Annonce Image" style="max-width: 100%; max-height: 300px; object-fit: contain;">
+            </div>` 
+            : '';
+
+        // Ensure the `lien` is not null or empty
+        let linkTag = (latestAnnouncement.lien && latestAnnouncement.lien.trim() !== '') ? 
+            `<div class="text-center mt-3">
+                <a href="${latestAnnouncement.lien}" target="_blank" class="btn btn-primary" 
+                   style="width: 100%; max-width: 200px; display: inline-block;">
+                    🔗 Voir plus
+                </a>
+            </div>` 
+            : '<div class="text-center mt-3 text-muted">Aucun lien disponible</div>';
+
+        let modalContent = `
+            <div class="p-3 text-center">
+                <h4 class="text-primary font-weight-bold">${latestAnnouncement.titre}</h4>
+                <hr>
+                ${imageTag}
+                <p class="text-dark text-justify" style="font-size: 16px; line-height: 1.5; word-wrap: break-word;">
+                    ${latestAnnouncement.contenu}
+                </p>
+                ${linkTag}
+            </div>`;
+
+        let modal = `
+            <div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="modalTitle">📢 Dernière Annonce</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">${modalContent}</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+        document.body.insertAdjacentHTML('beforeend', modal);
+        $('#announcementModal').modal('show');
+    }
+});
+
+   </script>
           <!--Row-->
 
         </div>
