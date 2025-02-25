@@ -1,10 +1,10 @@
 
 <?php 
-  $query = "SELECT * FROM tbladmin WHERE Id = ".$_SESSION['userId']."";
+  $query = "SELECT * FROM tbladmin WHERE Id = 1";
   $rs = $conn->query($query);
   $num = $rs->num_rows;
   $rows = $rs->fetch_assoc();
-  $fullName = $rows['firstName']." ".$rows['lastName'];
+  $fullName = $rows['firstName'];
 
 ?>
 <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top">

@@ -68,10 +68,9 @@ while ($data = mysqli_fetch_assoc($scheduleQuery)) {
                     <thead class="thead-light">
                       <tr>
                         <th>Jour</th>
-                        <th>08:30 - 11:00</th>
-                        <th>11:00 - 13:30</th>
-                        <th>13:30 - 16:00</th>
-                        <th>16:00 - 18:30</th>
+                        <th>First</th>
+                        <th>Second</th>
+                        <th>Third</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -80,7 +79,7 @@ while ($data = mysqli_fetch_assoc($scheduleQuery)) {
                       foreach ($jours as $jour) {
                         echo "<tr>";
                         echo "<th>$jour</th>";
-                        for ($i = 1; $i <= 4; $i++) {
+                        for ($i = 1; $i <= 3; $i++) {
                           echo "<td>" . ($scheduleData[$jour][$i] ?? "—") . "</td>";
                         }
                         echo "</tr>";
@@ -95,8 +94,9 @@ while ($data = mysqli_fetch_assoc($scheduleQuery)) {
 
         </div>
       </div>
-      <?php include "Includes/footer.php"; ?>
+      
     </div>
+    <?php include "Includes/footer.php"; ?>
   </div>
 
   <script src="../vendor/jquery/jquery.min.js"></script>

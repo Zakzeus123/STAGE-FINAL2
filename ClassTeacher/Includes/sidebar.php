@@ -38,7 +38,7 @@
        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapcon"
           aria-expanded="true" aria-controls="collapseBootstrapcon">
-          <i class="fa fa-calendar-alt"></i>
+          <i class="fas fa-user-check"></i>
           <span>Manage Attendance</span>
         </a>
         <div id="collapseBootstrapcon" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -46,7 +46,7 @@
             <h6 class="collapse-header">Manage Attendance</h6>
             <a class="collapse-item" href="takeAttendance.php">Take Attendance</a>
             <a class="collapse-item" href="viewAttendance.php">View Class Attendance</a>
-            <a class="collapse-item" href="viewStudentAttendance.php">View Student Attendance</a>
+            <a class="collapse-item" href="viewStudentAttendance.php"> View Student Attendance</a>
             <!-- <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a> -->
             <!-- <a class="collapse-item" href="addMemberToContLevel.php ">Add Member to Level</a> -->
           </div>
@@ -147,6 +147,22 @@
     </div>
 </li>
 <hr class="sidebar-divider">
+<div class="sidebar-heading">
+     Gestion des notes
+   </div>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstraphcon"
+       aria-expanded="true" aria-controls="collapseBootstrapcon">
+       <i class="fas fa-pencil-alt"></i>
+       <span>Gestion des notes</span>
+     </a>
+     <div id="collapseBootstraphcon" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+       <div class="bg-white py-2 collapse-inner rounded">
+         <h6 class="collapse-header">gree note</h6>
+         <a class="collapse-item" href="gerNote.php">Créer une note</a>
+         <a class="collapse-item" href="calculenote.php">Voir les notes</a>
+
 
      
     </ul>

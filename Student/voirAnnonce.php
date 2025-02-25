@@ -31,6 +31,19 @@ $result = mysqli_query($conn, $query);
                 <!-- Topbar -->
                 
                 <div class="container-fluid" id="container-wrapper">
+                <?php if (isset($_SESSION['success'])): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['error'])): ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+<?php endif; ?>
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">📢 Toutes les Annonces</h1>
                         <ol class="breadcrumb">
@@ -51,6 +64,7 @@ $result = mysqli_query($conn, $query);
                         <th style="white-space: nowrap;">Date</th>
                         <th>Image</th>
                         <th style="white-space: nowrap;">Lien</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -107,5 +121,10 @@ $result = mysqli_query($conn, $query);
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/ruang-admin.min.js"></script>
+    <!-- <script>
+        function confirmDelete() {
+            return confirm("Êtes-vous sûr de vouloir supprimer cette annonce ?");
+        }
+    </script> -->
 </body>
 </html>

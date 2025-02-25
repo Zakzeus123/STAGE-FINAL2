@@ -170,7 +170,7 @@
      </div>
       <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapassestsrt" aria-expanded="true" aria-controls="collapseBootstrapassests">
-             <i class="fas fa-chalkboard-teacher"></i>
+         <i class="fas fa-user-check"></i>
              <span>Gérer l'emploi du temps</span>
          </a>
          <div id="collapseBootstrapassestsrt" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -179,6 +179,8 @@
                  <a class="collapse-item" href="index2.php">Créer un emploi du temps</a>
                  <br>
                  <a class="collapse-item" href="emploiExamSt.php">Créer un emploi du temps <br> des examens</a>
+                 <a class="collapse-item" href="toutEmploi.php">Voir emploi du temps <br> Etudiants</a>
+                 <a class="collapse-item" href="toutEmploiTeach.php">Voir emploi du temps <br> Enseignants</a>
 
                  <!-- <a class="collapse-item" href="assetsCategoryList.php">Assets Category List</a>
              <a class="collapse-item" href="createAssets.php">Create Assets</a>
