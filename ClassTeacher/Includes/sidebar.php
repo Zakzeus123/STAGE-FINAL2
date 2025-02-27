@@ -162,6 +162,27 @@
          <h6 class="collapse-header">gree note</h6>
          <a class="collapse-item" href="gerNote.php">Créer une note</a>
          <a class="collapse-item" href="calculenote.php">Voir les notes</a>
+         </div>
+         </li>
+         
+         <hr class="sidebar-divider">
+<div class="sidebar-heading">
+    Gestion des devoirs
+</div>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDevoirs"
+       aria-expanded="true" aria-controls="collapseDevoirs">
+        <i class="fas fa-book"></i>
+        <span>Gestion des devoirs</span>
+    </a>
+    <div id="collapseDevoirs" class="collapse" aria-labelledby="headingDevoirs" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Devoirs</h6>
+            <a class="collapse-item" href="viewhomeWork.php">Voir les devoirs</a>
+        </div>
+    </div>
+</li>
+
 
 
      

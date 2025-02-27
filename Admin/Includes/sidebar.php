@@ -210,6 +210,21 @@
     </div>
 </li>
 <hr class="sidebar-divider">
+<div class="sidebar-heading">
+     Gestion des notes
+   </div>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstraphcon"
+       aria-expanded="true" aria-controls="collapseBootstrapcon">
+       <i class="fas fa-pencil-alt"></i>
+       <span>Gestion des notes</span>
+     </a>
+     <div id="collapseBootstraphcon" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+       <div class="bg-white py-2 collapse-inner rounded">
+         <h6 class="collapse-header">gree note</h6>
+         <a class="collapse-item" href="gerNote.php">Créer une note</a>
+         <a class="collapse-item" href="calculenote.php">Voir les notes</a>
 
 
  </ul>

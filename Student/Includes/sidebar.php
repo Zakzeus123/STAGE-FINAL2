@@ -194,5 +194,21 @@
     </div>
 </li>
 <hr class="sidebar-divider">
-     
+      <div class="sidebar-heading">
+    Devoirs
+</div>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDevoirs" aria-expanded="true" aria-controls="collapseDevoirs">
+    <i class="fas fa-paper-plane"></i>
+        <span>Soumettre un devoir</span>
+    </a>
+    <div id="collapseDevoirs" class="collapse" aria-labelledby="headingDevoirs" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Soumettre un devoir</h6>
+            <a class="collapse-item" href="homeWork.php">
+            <i class="fas fa-file-upload"></i> Soumettre votre devoir</a>
+        </div>
+    </div>
+</li>
+<hr class="sidebar-divider">
     </ul>
