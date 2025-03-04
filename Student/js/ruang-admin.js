@@ -9,6 +9,19 @@
       $('.sidebar .collapse').collapse('hide');
     };
   });
+  
+  $(document).ready(function() {
+    $.ajax({
+        url: "fetch_classes.php", // Make sure this file exists and works
+        method: "GET",
+        success: function(data) {
+            $("#classTable tbody").html(data);
+        },
+        error: function(xhr, status, error) {
+            console.error("Error loading data: " + error);
+        }
+    });
+});
 
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function() {

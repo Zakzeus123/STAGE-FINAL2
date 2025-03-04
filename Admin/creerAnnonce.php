@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Convert multiple selections into comma-separated strings
     $classId = isset($_POST['classId']) ? implode(',', $_POST['classId']) : NULL;
     $teacherId = isset($_POST['teacherId']) ? implode(',', $_POST['teacherId']) : NULL;
-    $classArmId = isset($_POST['classArmId']) ? implode(',', $_POST['classArmId']) : NULL;
+    $classArmId = isset($_POST['classArmId']) ? implode(',', $_POST['classArmId']) : NULL;    
 
     // Insérer l'annonce dans la BDD
     $query = "INSERT INTO tblannonces (titre, contenu, image, lien, source, classId, teacherId, classArmId) 
@@ -53,6 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Créer une Annonce</title>
+    <!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
+<!-- jQuery (needed for Select2) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -88,38 +95,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <textarea name="contenu" id="contenu" class="form-control" rows="5" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="classId">Classes :</label>
-                                    <select name="classId[]" id="classId" class="form-control" multiple required>
-                                        <?php
-                                        $result = mysqli_query($conn, "SELECT * FROM tblclass");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<option value='{$row['Id']}'>{$row['className']}</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="teacherId">Enseignants :</label>
-                                    <select name="teacherId[]" id="teacherId" class="form-control" multiple required>
-                                        <?php
-                                        $result = mysqli_query($conn, "SELECT * FROM tblclassteacher");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<option value='{$row['Id']}'>{$row['firstName']} {$row['lastName']}</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="classArmId">Groupes :</label>
-                                    <select name="classArmId[]" id="classArmId" class="form-control" multiple required>
-                                        <?php
-                                        $result = mysqli_query($conn, "SELECT * FROM tblclassarms");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<option value='{$row['Id']}'>{$row['classArmName']}</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+    <label for="classId">Classes :</label><br>
+    <?php
+    $result = mysqli_query($conn, "SELECT * FROM tblclass");
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div class='form-check'>
+                <input class='form-check-input' type='checkbox' name='classId[]' id='class_{$row['Id']}' value='{$row['Id']}'>
+                <label class='form-check-label' for='class_{$row['Id']}'>{$row['className']}</label>
+              </div>";
+    }
+    ?>
+</div>
+
+<div class="form-group">
+    <label for="teacherId">Enseignants :</label><br>
+    <?php
+    $result = mysqli_query($conn, "SELECT * FROM tblclassteacher");
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div class='form-check'>
+                <input class='form-check-input' type='checkbox' name='teacherId[]' id='teacher_{$row['Id']}' value='{$row['Id']}'>
+                <label class='form-check-label' for='teacher_{$row['Id']}'>{$row['firstName']} {$row['lastName']}</label>
+              </div>";
+    }
+    ?>
+</div>
+
+<div class="form-group">
+    <label for="classArmId">Groupes :</label><br>
+    <?php
+    $result = mysqli_query($conn, "SELECT * FROM tblclassarms");
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div class='form-check'>
+                <input class='form-check-input' type='checkbox' name='classArmId[]' id='group_{$row['Id']}' value='{$row['Id']}'>
+                <label class='form-check-label' for='group_{$row['Id']}'>{$row['classArmName']}</label>
+              </div>";
+    }
+    ?>
+</div>
+
                                 <div class="form-group">
                                     <label for="lien">Lien (optionnel) :</label>
                                     <input type="url" name="lien" id="lien" class="form-control">
@@ -146,5 +159,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/ruang-admin.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Apply Select2 to multiple select dropdowns
+        $('#classId, #teacherId, #classArmId').select2({
+            placeholder: "Sélectionnez une option",
+            allowClear: true,
+            width: '100%'
+        });
+    });
+</script>
+
 </body>
 </html>

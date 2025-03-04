@@ -9,44 +9,44 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Tableau de bord</span></a>
       </li> 
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
-        Students
+        Etudiants
       </div>
       </li>
        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
           aria-expanded="true" aria-controls="collapseBootstrap2">
           <i class="fas fa-user-graduate"></i>
-          <span>Manage Students</span>
+          <span>Gérer Etudiants</span>
         </a>
         <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manage Students</h6>
-            <a class="collapse-item" href="viewStudents.php">View Students</a>
+            <h6 class="collapse-header">Gérer Etudiants</h6>
+            <a class="collapse-item" href="viewStudents.php">Voir Etudiants</a>
             <!-- <a class="collapse-item" href="#">Assets Type</a> -->
           </div>
         </div>
       </li>
       <hr class="sidebar-divider">
       <div class="sidebar-heading">
-      Attendance
+      Présence
       </div>
       </li>
        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapcon"
           aria-expanded="true" aria-controls="collapseBootstrapcon">
           <i class="fas fa-user-check"></i>
-          <span>Manage Attendance</span>
+          <span>Gérer La Présence</span>
         </a>
         <div id="collapseBootstrapcon" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manage Attendance</h6>
-            <a class="collapse-item" href="takeAttendance.php">Take Attendance</a>
-            <a class="collapse-item" href="viewAttendance.php">View Class Attendance</a>
-            <a class="collapse-item" href="viewStudentAttendance.php"> View Student Attendance</a>
+            <h6 class="collapse-header">Gérer La Présence</h6>
+            <a class="collapse-item" href="takeAttendance.php">Prendre La Présence</a>
+            <a class="collapse-item" href="viewAttendance.php">Voir Class Présence</a>
+            <a class="collapse-item" href="viewStudentAttendance.php"> Voir Etudiant Présence</a>
             <!-- <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a> -->
             <!-- <a class="collapse-item" href="addMemberToContLevel.php ">Add Member to Level</a> -->
           </div>
@@ -185,5 +185,4 @@
 
 
 
-     
     </ul>

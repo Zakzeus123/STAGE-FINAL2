@@ -315,9 +315,9 @@ $totAttendance = mysqli_num_rows($query1);
         <!---Conteneur fluide-->
       </div>
       <!-- Footer -->
-      <?php include 'includes/footer.php';?>
       <!-- Footer -->
     </div>
+    <?php include 'includes/footer.php';?>
   </div>
 
   <!-- Scroll to top -->

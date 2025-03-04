@@ -8,8 +8,7 @@ ini_set('display_errors', 1);
 $query = "SELECT Id, className FROM tblclass";
 $rs = $conn->query($query);
 $num = $rs->num_rows;
-echo "Number of records found: " . $num . "<br>";
-print_r($rs->fetch_assoc());
+
 
 ?>
 
@@ -102,6 +101,8 @@ print_r($rs->fetch_assoc());
   <script src="js/ruang-admin.min.js"></script>
   <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+ 
+
   
 
   <script>
